@@ -8,5 +8,3 @@ export const Logo = ({ sx }) => {
     </Typography>
   );
 };
-
-export default Logo;

@@ -29,5 +29,3 @@ export const ForgotPassword = () => {
     </RegistrationLayout>
   );
 };
-
-export default ForgotPassword;

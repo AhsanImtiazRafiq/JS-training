@@ -1,22 +1,20 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
 
-import HomePage from "@pages/Landing";
-import NotFoundPage from "@pages/NotFoundPage";
-import Login from "@pages/Registration/Login";
-import ForgotPassword from "@pages/Registration/ForgotPassword";
+// import HomePage from "@pages/Landing";
+import { NotFoundPage } from "@pages/NotFoundPage";
+import { Login } from "@pages/Registration/Login";
+import { ForgotPassword } from "@pages/Registration/ForgotPassword";
 
-export const RoutesConfig = () => {
+export const Routes = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+      <RouterRoutes>
+        {/* <Route path="/" element={<HomePage />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<ForgotPassword />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      </RouterRoutes>
     </BrowserRouter>
   );
 };
-
-export default RoutesConfig;

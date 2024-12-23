@@ -2,7 +2,7 @@ import { Typography, Box, Button } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NotFoundPage = () => {
+export const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
@@ -27,5 +27,3 @@ const NotFoundPage = () => {
     </Box>
   );
 };
-
-export default NotFoundPage;

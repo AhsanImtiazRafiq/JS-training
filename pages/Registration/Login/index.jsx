@@ -33,5 +33,3 @@ export const Login = () => {
     </RegistrationLayout>
   );
 };
-
-export default Login;
