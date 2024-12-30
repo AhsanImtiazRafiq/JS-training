@@ -13,6 +13,7 @@ export const LoginForm = () => {
 
   const onSubmit = (data) => {
     console.log("Form Data:", data);
+    navigate("/dashboard");
   };
 
   return (

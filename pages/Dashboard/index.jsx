@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 
 import { DashboardLayout } from "@components/Global/Layout";
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <DashboardLayout>
       <Typography variant="h1">Welcome to the Home Page</Typography>
@@ -12,5 +12,3 @@ const HomePage = () => {
     </DashboardLayout>
   );
 };
-
-export default HomePage;

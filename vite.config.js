@@ -11,6 +11,7 @@ export default defineConfig({
       "@components": "/components",
       "@pages": "/pages",
       "@styles": "/styles",
+      "@api": "/api",
     },
   },
 });

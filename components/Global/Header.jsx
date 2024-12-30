@@ -75,7 +75,7 @@ export const Header = ({ isMenuOpen, handleDrawerState }) => {
 
   return (
     <AppBar
-      position="relative"
+      position="sticky"
       open={isMenuOpen}
       sx={{
         zIndex: theme.zIndex.drawer + 1,
@@ -204,5 +204,3 @@ export const Header = ({ isMenuOpen, handleDrawerState }) => {
     </AppBar>
   );
 };
-
-export default Header;

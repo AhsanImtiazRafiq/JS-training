@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const Landing = () => {
+export const Landing = () => {
   const navigate = useNavigate();
   return (
     <Box>
@@ -15,5 +15,3 @@ const Landing = () => {
     </Box>
   );
 };
-
-export default Landing;
