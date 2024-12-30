@@ -1,47 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { ThemeProvider, createTheme } from "@mui/material";
-
-const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#1976d2",
-    },
-    secondary: {
-      main: "#dc004e",
-    },
-  },
-});
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#90caf9",
-    },
-    secondary: {
-      main: "#f48fb1",
-    },
-  },
-});
-
-const customTheme = createTheme({
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#ff5722",
-    },
-    secondary: {
-      main: "#4caf50",
-    },
-  },
-});
-
-const themes = {
-  light: lightTheme,
-  dark: darkTheme,
-  custom: customTheme,
-};
+import { ThemeProvider } from "@mui/material";
+import { themes } from "./theme";
 
 // Create the context
 const ThemeContext = createContext();
