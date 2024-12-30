@@ -17,6 +17,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { headerHeight } from "./Header";
+import { useNavigate } from "react-router-dom";
 
 export const drawerWidth = "250px";
 export const drawerClosedWidth = "66px";
@@ -26,18 +27,22 @@ const NAVIGATION = [
     section: "dashboard",
     title: "Dashboard",
     icon: <DashboardIcon fontSize="large" />,
+    path: "/dashboard",
   },
 
   {
     section: "student",
     title: "Students",
     icon: <BarChartIcon fontSize="large" />,
+    path: "/student-list",
     children: [
       {
         title: "Students List",
+        path: "/student-list",
       },
       {
         title: "Create new student",
+        path: "/create-new-student",
       },
     ],
   },
@@ -45,6 +50,7 @@ const NAVIGATION = [
 
 export const Sidebar = ({ isDrawerOpen }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   const [expanded, setExpanded] = useState(null); // Tracks which accordion is expanded
 
@@ -81,7 +87,7 @@ export const Sidebar = ({ isDrawerOpen }) => {
     >
       <Box sx={{ overflow: "auto" }}>
         <List sx={{ p: 0 }}>
-          {NAVIGATION.map(({ title, icon, children }) => (
+          {NAVIGATION.map(({ title, icon, path, children }) => (
             <ListItem
               key={title}
               sx={{
@@ -94,7 +100,10 @@ export const Sidebar = ({ isDrawerOpen }) => {
             >
               {!children ? (
                 // If no children, render a simple button
-                <ListItemButton sx={{ width: "100%", gap: 2, py: 4 }}>
+                <ListItemButton
+                  sx={{ width: "100%", gap: 2, py: 4 }}
+                  onClick={() => navigate(path)}
+                >
                   {icon}
                   {isDrawerOpen && (
                     <Typography variant="h6">{title}</Typography>
@@ -128,28 +137,32 @@ export const Sidebar = ({ isDrawerOpen }) => {
 
                   <AccordionDetails>
                     <List sx={{ py: 0 }}>
-                      {children.map(({ title: childTitle }) => (
-                        <ListItem
-                          sx={{
-                            width: "100%",
-                            py: 0,
-                            "&:not(:last-child)": {
-                              borderBottom: "1px solid",
-                              borderColor: "border.main",
-                            },
-                          }}
-                        >
-                          <ListItemButton
-                            key={childTitle}
-                            disableRipple
-                            disableTouchRipple
+                      {children.map(
+                        ({ index, title: childTitle, path: childPath }) => (
+                          <ListItem
+                            key={index}
+                            sx={{
+                              width: "100%",
+                              py: 0,
+                              "&:not(:last-child)": {
+                                borderBottom: "1px solid",
+                                borderColor: "border.main",
+                              },
+                            }}
                           >
-                            <Typography variant="body2">
-                              {childTitle}
-                            </Typography>
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
+                            <ListItemButton
+                              key={childTitle}
+                              disableRipple
+                              disableTouchRipple
+                              onClick={() => navigate(childPath)}
+                            >
+                              <Typography variant="body2">
+                                {childTitle}
+                              </Typography>
+                            </ListItemButton>
+                          </ListItem>
+                        )
+                      )}
                     </List>
                   </AccordionDetails>
                 </Accordion>
@@ -161,5 +174,3 @@ export const Sidebar = ({ isDrawerOpen }) => {
     </Drawer>
   );
 };
-
-export default Sidebar;

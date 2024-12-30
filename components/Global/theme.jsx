@@ -18,7 +18,7 @@ export const lightTheme = createTheme({
     },
 
     border: {
-      main: "#A9A9A9",
+      main: "rgba(224, 224, 224, 1)",
     },
   },
   components: styleOverrides,
@@ -47,6 +47,9 @@ export const customTheme = createTheme({
     },
     secondary: {
       main: "#4caf50",
+    },
+    border: {
+      main: "rgba(224, 224, 224, 1)",
     },
   },
   components: styleOverrides,
